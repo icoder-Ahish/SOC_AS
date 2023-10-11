@@ -1,1 +1,1 @@
-# SOC_AS
+# DURGA-SOC-Project
