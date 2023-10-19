@@ -1,28 +1,40 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import loginPage from '../components/loginPage.vue'
-// import homePage from '../components/homePage.vue'
-
+import rulePage from '../components/rulePage.vue'
+import socDashboard from '../components/socDashboard.vue'
+import onBoard from '../components/onBoard.vue'
 // import homeView from '@/views/HomeView.vue'
-import homeView from '@/views/DashBoard.vue'
+import homeView from '@/views/HomeView.vue'
+
 
 
 const routes = [
   {
     name: 'login',
-    path: '/',
+    path: '/login',
     component: loginPage
   },
   {
+    name: 'socdashboard',
+    path: '/socdashboard',
+    component: socDashboard
+  },
+  {
     name: 'home',
-    path: '/home',
+    path: '/',
     component: homeView
   },
-  // {
-  //   name: 'home',
-  //   path: '/home',
-  //   component: homePage
-  // },
+  {
+    name: 'rulePage',
+    path: '/rules',
+    component: rulePage
+  },
+  {
+    name: 'onBoard',
+    path: '/onBoard',
+    component: onBoard
+  },
 
 ]
 
@@ -35,26 +47,25 @@ const router = createRouter({
 
 
 // Create the router guard
-router.beforeEach((to, from, next) => {
-  const allowedPaths = ['/', ];
+// router.beforeEach((to, from, next) => {
+//   const allowedPaths = ['/', ];
 
-  if (allowedPaths.includes(to.path)) {
-   
-    next();
-  } else {
-   
-   
-    const user_id = sessionStorage.getItem('user_id')
-    const username = sessionStorage.getItem('username')
+//   if (allowedPaths.includes(to.path)) {
 
-    if ( user_id || username) {
+//     next();
+//   } else {
+
+//     const user_id = sessionStorage.getItem('user_id')
+//     const username = sessionStorage.getItem('username')
+
+//     if ( user_id || username) {
       
-      next();
-    } else {
-      next('/');
-    }
-  }
-});
+//       next();
+//     } else {
+//       next('/');
+//     }
+//   }
+// });
 
 
 export default router
